@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 项目专属:运行时生成的数据文件,不要提交进仓库
+students.data
+*.data
+
+# 常见IDE/系统文件
+.vscode/
+.idea/
+.DS_Store
