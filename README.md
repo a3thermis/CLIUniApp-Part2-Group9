@@ -5,6 +5,6 @@ University Application System (CLIUniApp + GUIUniApp), built in Python.
 ## Team
 - [Ruoqi Zhou]  University System, Student System, GUIUniApp
 - [Member A]  Subject Enrolment System
-- [Member B]  Admin System
+- [Bolorchuluun Nekhiit]  Admin System
 
 ## Project Structure
