@@ -27,5 +27,3 @@ def subject_enrolment_system():
             return
         else:
             print("Invalid choice")
-
-subject_enrolment_system()
