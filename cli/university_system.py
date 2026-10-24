@@ -14,7 +14,6 @@ while True:
         admin_system()
     elif choice == "S":
     #elif: Check another condition if previous ones failed
-        print("Student System(l/r/x):")
         student_system()  # Call the student_system function
     elif choice == "X":
         print("Thank You!")
