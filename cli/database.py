@@ -28,6 +28,6 @@ class Database:
     def find_record_by_email(self, email):
         records = self.load_data()
         for record in records:
-            if record["email"] == email:
+            if record["email"].strip().lower() == email.strip().lower():
                 return record
         return None

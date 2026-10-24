@@ -3,17 +3,21 @@ from subject import Subject
 
 def subject_enrolment_system(student_record):
     while True:
-        print("Subject Enrolment System(c/e/r/s/x):")
-        choice = input("Subject Enrolment System(c/e/r/s/x) ").lower()
+        choice = input("Subject Enrolment System(c/e/r/s/x): ").lower()
 
         if choice == "c":
             print("Change Password")
             while True:
                 new_password = input("Enter new password: ")
                 if validate_password(new_password):
-                    # Password meets the required format
-                    student_record["password"] = new_password
-                    print("Password is valid.")
+                    while True:
+                        confirm_password = input("Confirm Password: ")
+                        if confirm_password != new_password:
+                            print("Password does not match - try again")
+                        else:
+                            student_record["password"] = new_password
+                            print("Password updated successfully.")
+                            break
                     break
                 else:
                     # Password does not meet the required format
@@ -39,7 +43,8 @@ def subject_enrolment_system(student_record):
                             id_exists = True
                             break
                 student_record["subjects"].append(new_subject.to_dict()) 
-                print("You are now enrolled in", len(student_record["subjects"]), "subjects.")
+                print("Enrolling in Subject-" + new_subject.subject_id)
+                print("You are now enrolled in", len(student_record["subjects"]), "out of 4 subjects.")
                 total_marks = 0
                 for subject in student_record["subjects"]:
                     total_marks = total_marks + subject["mark"]
@@ -53,6 +58,7 @@ def subject_enrolment_system(student_record):
                 if subject["subject_id"] == subject_id:
                     student_record["subjects"].remove(subject)
                     print("Subject with ID", subject_id, "has been removed.")
+                    print("You are now enrolled in", len(student_record["subjects"]), "out of 4 subjects.")
                     found = True
                     if len(student_record["subjects"]) > 0:
                         total_marks = 0

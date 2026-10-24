@@ -46,6 +46,14 @@ def student_system():
             else:
                 print("Login successful.")
                 print("Welcome,", existing_record["name"])
+                records = database.load_data()
+                for record in records:
+                    if record["student_id"] == existing_record["student_id"]:
+                        existing_record = record
+                        break
+                from subject_enrolment_system import subject_enrolment_system
+                subject_enrolment_system(existing_record)
+                database.save_data(records)
 
         elif choice == "r":
             print("Student Sign up")
