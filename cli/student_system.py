@@ -30,8 +30,14 @@ def student_system():
         choice = input("Student System(l/r/x): ").lower()
         if choice == "l":
             print("Student Sign in")
-            Email = input("Email: ")
-            Password = input("Password: ")
+            while True:
+                Email = input("Email: ")
+                Password = input("Password: ")
+                if validate_email(Email) and validate_password(Password):
+                    print("email and password formats acceptable")
+                    break
+                else:
+                    print("Incorrect email or password format")
             existing_record = database.find_record_by_email(Email)
             if existing_record is None:
                 print("Student does not exist.")
@@ -70,6 +76,8 @@ def student_system():
         elif choice == "x":
             print("Exiting Student System.")
             return  # Exit the function
+        else:
+            print("Invalid choice. Please try again.")
 def validate_email(email):
     # Check if the email contains '@' and '.'
     if re.fullmatch(EMAIL_REGEX, email):
