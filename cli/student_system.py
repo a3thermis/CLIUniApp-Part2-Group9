@@ -1,4 +1,7 @@
 import re
+import random
+from database import Database
+from student import Student
 #re: Regular expression module for pattern matching
 EMAIL_REGEX = r"[^@\s]+@university\.com"
 #PASSWORD_REGEX = r"[A-Z][A-Za-z]{4,}[0-9]{3}"

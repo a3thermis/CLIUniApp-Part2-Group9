@@ -19,5 +19,10 @@ class Database:
                 # Write an empty list in JSON format, representing no student records.
                 # []: The data to save: an empty list.
                 # data_file: The destination file object.
-database = Database()
-print(database.file_path)
+    def load_data(self):
+        with self.file_path.open("r", encoding="utf-8") as data_file:
+            return json.load(data_file)
+    def save_data(self, data):
+        with self.file_path,open("w", encoding="utf-8") as data_file:
+            json.dump(data, data_file, indent=4)
+

@@ -2,6 +2,7 @@
 # choice = Store the result in choice*
 # "=" assignment operator, assigns the value on the right to the variable on the left 
 from student_system import student_system  # Import the student_system function from the student_system module
+from admin_system import admin_system
 while True:
     #while: Loop that continues until a break statement is encountered
     print("University System: (A)dmin, (S)tudent, or X to exit?")
@@ -10,7 +11,7 @@ while True:
     if choice == "A":
     # == comparison operator, checks if the value on the left is equal to the value on the right
     #if choice: conditional statement
-        print("Admin System(c/g/p/r/s/x):")
+        admin_system()
     elif choice == "S":
     #elif: Check another condition if previous ones failed
         print("Student System(l/r/x):")

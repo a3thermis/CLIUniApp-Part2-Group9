@@ -1,6 +1,8 @@
+from database import Database
+
 def admin_system():
+    database = Database()
     while True:
-        print("Admin System(c/g/p/r/s/x):")
         choice = input("Admin System(c/g/p/r/s/x) ").lower()
 
         if choice == "c":
@@ -12,7 +14,17 @@ def admin_system():
         elif choice == "r":
             print("Remove Student")
         elif choice == "s":
-            print("Show Students")    
+            print("Show Students")
+            records = database.load_data()
+
+            if not records:
+                print("No students found.")
+            else:
+                for record in records:
+                    print("Student ID:", record['student_id"'])
+                    print("Name:", record["name"])
+                    print("Email:", record["email"])
+                    print("Subjects:", record["subjects"])    
         elif choice == "x":
             print("Exiting Admin System")
             return
