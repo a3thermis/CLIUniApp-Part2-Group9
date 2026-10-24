@@ -19,5 +19,21 @@ class Database:
                 # Write an empty list in JSON format, representing no student records.
                 # []: The data to save: an empty list.
                 # data_file: The destination file object.
-database = Database()
-print(database.file_path)
+    def load_data(self):
+        with self.file_path.open("r", encoding="utf-8") as data_file:
+            # "r": Read without changing the file
+            return json.load(data_file) #Read and decode the JSON, then return the resulting Python data.
+    def save_data(self, data):
+        with self.file_path.open("w", encoding="utf-8") as data_file:
+            json.dump(data, data_file, indent=4) 
+            #saving writes the supplied data.
+            #indent=4 formats the JSON across multiple indented lines.
+    def find_record_by_email(self, email):
+        records = self.load_data()
+        for record in records:
+            if record["email"] == email:
+                return record
+        return None #Return a matching record immediately; return None only after checking every record.
+#database = Database()
+#records = database.load_data()
+#database.save_data(records)
