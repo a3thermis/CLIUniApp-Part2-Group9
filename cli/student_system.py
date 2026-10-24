@@ -30,6 +30,17 @@ def student_system():
         choice = input("Student System(l/r/x): ").lower()
         if choice == "l":
             print("Student Sign in")
+            Email = input("Email: ")
+            Password = input("Password: ")
+            existing_record = database.find_record_by_email(Email)
+            if existing_record is None:
+                print("Student does not exist.")
+            elif existing_record["password"] != Password:
+                print("Incorrect email or password.")
+            else:
+                print("Login successful.")
+                print("Welcome,", existing_record["name"])
+
         elif choice == "r":
             print("Student Sign up")
             while True:
