@@ -223,6 +223,8 @@ __marimo__/
 students.data
 *.data
 
+!/student.data
+
 # 常见IDE/系统文件
 .vscode/
 .idea/
