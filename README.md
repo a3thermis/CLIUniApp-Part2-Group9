@@ -13,5 +13,5 @@ University Application System (CLIUniApp + GUIUniApp), built in Python.
 
 
 
-## GUI demo
+## GUI design
 https://www.figma.com/design/De9fqw0JmjgYMpQ4hkxtg9/CLIUniApp-GUI?node-id=1-4&t=HqSu9b8BPR9yYk4j-1
