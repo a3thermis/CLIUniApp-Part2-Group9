@@ -6,6 +6,7 @@ class Student:
         self.email = email
         self.password = password
         self.subjects = []
+        self.average_mark = 0
 #test_student = Student("002340", "Alice", "alice@university.com", "Abcde123")
 #print(test_student.student_id)
 #print(test_student.subjects)
@@ -21,5 +22,6 @@ class Student:
             "name": self.name, 
             "email": self.email,
             "password": self.password,
-            "subjects": subject_data
+            "subjects": subject_data,
+            "average_mark": self.average_mark
         }

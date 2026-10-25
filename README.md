@@ -8,3 +8,10 @@ University Application System (CLIUniApp + GUIUniApp), built in Python.
 - [Bolorchuluun Nekhiit]  Admin System
 
 ## Project Structure
+
+
+
+
+
+## GUI demo
+https://www.figma.com/design/De9fqw0JmjgYMpQ4hkxtg9/CLIUniApp-GUI?node-id=1-4&t=HqSu9b8BPR9yYk4j-1

@@ -21,7 +21,18 @@ class Database:
                 # data_file: The destination file object.
     def load_data(self):
         with self.file_path.open("r", encoding="utf-8") as data_file:
-            return json.load(data_file)
+            records = json.load(data_file)
+        for record in records:
+            if "average_mark" not in record:
+                subjects = record["subjects"]
+                total_marks = 0
+                for subject in subjects:
+                    total_marks = total_marks + subject["mark"]
+                if len(subjects) > 0:
+                    record["average_mark"] = total_marks / len(subjects)
+                else:
+                    record["average_mark"] = 0
+        return records
     def save_data(self, data):
         with self.file_path.open("w", encoding="utf-8") as data_file:
             json.dump(data, data_file, indent=4)
