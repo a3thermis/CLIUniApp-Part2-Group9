@@ -4,14 +4,14 @@ import re
 import random
 #re: Regular expression module for pattern matching
 EMAIL_REGEX = r"[^@\s]+@university\.com"
-#PASSWORD_REGEX = r"[A-Z][A-Za-z]{4,}[0-9]{3}"
+PASSWORD_REGEX = r"[A-Z][A-Za-z]{4,}[0-9]{3}"
 #EMAIL_REGEX: Regular expression pattern to match valid university email addresses
 #PASSWORD_REGEX: Regular expression pattern to match valid passwords
 #One uppercase letter
 #One uppercase or lowercase letter
 #Repeat the preceding element at least four times
 #Three digits at the end
-PASSWORD_REGEX = r"^[A-Z](?=(?:.*[A-Za-z]){4})(?=(?:.*[0-9]){3})[A-Za-z0-9]+"
+#PASSWORD_REGEX = r"^[A-Z](?=(?:.*[A-Za-z]){4})(?=(?:.*[0-9]){3})[A-Za-z0-9]+"
 # (?=(?:.*[A-Za-z]){4}): Check for at least four remaining letters
 # (?=(?:.*[0-9]){3}): Check for at least three remaining digits
 # [A-Za-z0-9]+: Match one or more letters or digits

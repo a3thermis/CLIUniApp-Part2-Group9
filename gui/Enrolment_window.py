@@ -204,7 +204,7 @@ def show_enrolment_window(window, student_record, on_logout):
 
         confirm_label = tk.Label(
             password_form,
-            text="Comfirm password",
+            text="Confirm password",
             bg="#FFFFFF",
             font=("Arial", 12)
         )
