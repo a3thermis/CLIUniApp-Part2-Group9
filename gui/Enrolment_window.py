@@ -3,6 +3,7 @@ from tkinter import ttk, messagebox
 from database import Database
 from subject import Subject
 from student_system import validate_password
+from Subject_window import show_subject_window
 
 def show_enrolment_window(window, student_record, on_logout):
     database = Database()
@@ -34,6 +35,18 @@ def show_enrolment_window(window, student_record, on_logout):
     )
     logout_button.pack(side="right", padx=24, pady=16)
 
+    def view_subjects():
+        show_subject_window(window, student_record)
+
+    subject_button = ttk.Button(
+        header_frame,
+        text="My Subjects",
+        style="Login.TButton",
+        command=view_subjects,
+        width=16
+    )
+    subject_button.pack(side="right", padx=(0,12), pady=16)
+#receives the current student record
     title_label = tk.Label(
         enrolment_frame,
         text="Subject Enrolment",
