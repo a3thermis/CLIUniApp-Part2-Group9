@@ -5,8 +5,7 @@ from student_system import student_system  # Import the student_system function 
 from admin_system import admin_system
 while True:
     #while: Loop that continues until a break statement is encountered
-    print("University System: (A)dmin, (S)tudent, or X to exit?")
-    choice = input("University System(A/S/X): ").upper()
+    choice = input("University System: (A)dmin, (S)tudent, or X : ").upper()
 #    print("Your choice:", choice)
     if choice == "A":
     # == comparison operator, checks if the value on the left is equal to the value on the right
@@ -16,7 +15,7 @@ while True:
     #elif: Check another condition if previous ones failed
         student_system()  # Call the student_system function
     elif choice == "X":
-        print("Thank You!")
+        print("Thank You")
         break  # Exit the loop
     else:
         print("Invalid choice. Please try again.")

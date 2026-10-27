@@ -3,12 +3,12 @@ from subject import Subject
 
 def subject_enrolment_system(student_record):
     while True:
-        choice = input("Subject Enrolment System(c/e/r/s/x): ").lower()
+        choice = input("Student Course Menu (c/e/r/s/x): ").lower()
 
         if choice == "c":
-            print("Change Password")
+            print("Updating Password")
             while True:
-                new_password = input("Enter new password: ")
+                new_password = input("New Password: ")
                 if validate_password(new_password):
                     while True:
                         confirm_password = input("Confirm Password: ")
@@ -23,7 +23,7 @@ def subject_enrolment_system(student_record):
                     # Password does not meet the required format
                     print("New password is invalid.")
         elif choice == "e":
-            print("Enrol Subject")
+            print("Enrol a subject")
 
             if len(student_record["subjects"]) >= 4:
                 print("You have reached the 4 subject enrolment limit.")
@@ -51,8 +51,7 @@ def subject_enrolment_system(student_record):
                 average_mark = total_marks / len(student_record["subjects"])
                 student_record["average_mark"] = average_mark
         elif choice == "r":
-            print("Remove Subject")
-            subject_id = input("Enter the subject ID to remove: ") 
+            subject_id = input("Remove Subject by ID: ") 
             found = False
             for subject in student_record["subjects"]:
                 if subject["subject_id"] == subject_id:
@@ -73,10 +72,9 @@ def subject_enrolment_system(student_record):
                 print("Subject with ID", subject_id, "not found.")
                 
         elif choice == "s":
-            print("Show Subjects")
-            print("You are enrolled in", len(student_record["subjects"]), "subjects.")   
+            print("Showing", len(student_record["subjects"]), "subjects.")   
             for subject in student_record["subjects"]:
-                print("Subject ID:", subject["subject_id"], "Mark:", subject["mark"], "Grade:", subject["grade"]) 
+                print("[ Subject::" + str(subject["subject_id"]) + " -- mark =", subject["mark"], "-- grade =", subject["grade"], "]") 
         elif choice == "x":
             print("Exiting Subject Enrolment System")
             return

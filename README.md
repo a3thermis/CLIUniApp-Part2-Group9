@@ -24,7 +24,7 @@ CLIUniApp-Part2-Group9/
 │   ├── subject.py
 │   └── database.py
 └── gui/
-    ├── Login_window.py
+    ├── login_window.py
     ├── Enrolment_window.py
     └── Subject_window.py
     
@@ -36,13 +36,13 @@ Both the CLI and GUI use the same data file.
 Run the following commands from the project root directory.
 ### Start the CLI
 ```bash
-python3 cli/university_system.py
+python cli/university_system.py
 ```
 ## Start the GUI
 ```bash
-python3 gui/Login_window.py
+python gui/login_window.py
 ```
-Start the GUI through `Login_window.py`.
+Start the GUI through `login_window.py`.
 The other GUI modules are opened by the application.
 
 ## First-Time Use

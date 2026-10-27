@@ -26,10 +26,9 @@ def student_system():
     database = Database()
     while True:
 #def: Define a function named student_system
-        print("Student System: (l)ogin, (r)egister, or (x) to exit?")
-        choice = input("Student System(l/r/x): ").lower()
+        choice = input("Student System (l/r/x): ").lower()
         if choice == "l":
-            print("Student Sign in")
+            print("Student Sign In")
             while True:
                 Email = input("Email: ")
                 Password = input("Password: ")
@@ -40,7 +39,7 @@ def student_system():
                     print("Incorrect email or password format")
             existing_record = database.find_record_by_email(Email)
             if existing_record is None:
-                print("Student does not exist.")
+                print("Student does not exist")
             elif existing_record["password"] != Password:
                 print("Incorrect email or password.")
             else:
@@ -56,15 +55,15 @@ def student_system():
                 database.save_data(records)
 
         elif choice == "r":
-            print("Student Sign up")
+            print("Student Sign Up")
             while True:
                 Email = input("Enter your university email address: ")
                 Password = input("Password: ")
                 if validate_email(Email) and validate_password(Password):
-                    print("Email and password formats accepted.")
+                    print("Email and password formats acceptable")
                     break
                 else:
-                    print("Incorrect email address or password. Please enter a valid university email address.")
+                    print("Incorrect email or password format")
             existing_record = database.find_record_by_email(Email)
             if existing_record is not None:
                 print("Student", existing_record["name"], "already exists")
