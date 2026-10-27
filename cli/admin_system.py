@@ -38,7 +38,7 @@ def admin_system():
                     " --> GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
             if not grade_groups:
-                print("No students found.")
+                print("    < Nothing to Display >")
             else:
                 for grade, students in grade_groups.items():
                     print(grade, " --> [" + ", ".join(students) + "]")
@@ -52,8 +52,7 @@ def admin_system():
                 if average >= 50:
                     pass_students.append(record)
                 else:
-                    fail_students.append(record)
-            print("PASS -->", end=" ")
+                    fail_students.append(record)         
             pass_output = []
             for record in pass_students:
                 average = record["average_mark"]
@@ -73,7 +72,6 @@ def admin_system():
                 )
             print("PASS --> [" + ", ".join(pass_output) + "]")
         
-            print("FAIL -->", end=" ")
             fail_output = []
             for record in fail_students:
                 average = record["average_mark"]
@@ -113,7 +111,7 @@ def admin_system():
             records = database.load_data()
 
             if not records:
-                print("No students found.")
+                print("    < Nothing to Display >")
             else:
                 for record in records:
                     print(
