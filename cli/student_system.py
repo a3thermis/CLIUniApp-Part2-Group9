@@ -26,25 +26,25 @@ def student_system():
     database = Database()
     while True:
 #def: Define a function named student_system
-        choice = input("Student System (l/r/x): ").lower()
+        choice = input("\tStudent System (l/r/x): ").lower()
         if choice == "l":
-            print("Student Sign In")
+            print("\tStudent Sign In")
             while True:
-                Email = input("Email: ")
-                Password = input("Password: ")
+                Email = input("\tEmail: ")
+                Password = input("\tPassword: ")
                 if validate_email(Email) and validate_password(Password):
-                    print("email and password formats acceptable")
+                    print("\temail and password formats acceptable")
                     break
                 else:
-                    print("Incorrect email or password format")
+                    print("\tIncorrect email or password format")
             existing_record = database.find_record_by_email(Email)
             if existing_record is None:
-                print("Student does not exist")
+                print("\tStudent does not exist")
             elif existing_record["password"] != Password:
-                print("Incorrect email or password.")
+                print("\tIncorrect email or password.")
             else:
-                print("Login successful.")
-                print("Welcome,", existing_record["name"])
+                print("\tLogin successful.")
+                print("\tWelcome,", existing_record["name"])
                 records = database.load_data()
                 for record in records:
                     if record["student_id"] == existing_record["student_id"]:
@@ -55,20 +55,20 @@ def student_system():
                 database.save_data(records)
 
         elif choice == "r":
-            print("Student Sign Up")
+            print("\tStudent Sign Up")
             while True:
-                Email = input("Enter your university email address: ")
-                Password = input("Password: ")
+                Email = input("\tEnter your university email address: ")
+                Password = input("\tPassword: ")
                 if validate_email(Email) and validate_password(Password):
-                    print("Email and password formats acceptable")
+                    print("\tEmail and password formats acceptable")
                     break
                 else:
-                    print("Incorrect email or password format")
+                    print("\tIncorrect email or password format")
             existing_record = database.find_record_by_email(Email)
             if existing_record is not None:
-                print("Student", existing_record["name"], "already exists")
+                print("\tStudent", existing_record["name"], "already exists")
             else:
-                Name = input("Name: ")
+                Name = input("\tName: ")
                 records = database.load_data()
                 student_id = generate_student_id(records)
                 new_student = Student(student_id, Name, Email, Password)
@@ -78,13 +78,13 @@ def student_system():
                 records.append(new_record)
                 #Append the new record while retaining existing records.
                 database.save_data(records) #the complete updated collection to the file.
-                print("Enrolling Student", Name)
-                print("Generated student ID:", student_id)
+                print("\tEnrolling Student", Name)
+                print("\tGenerated student ID:", student_id)
         elif choice == "x":
-            print("Exiting Student System.")
+            print("\tExiting Student System.")
             return  # Exit the function
         else:
-            print("Invalid choice. Please try again.")
+            print("\tInvalid choice. Please try again.")
 def validate_email(email):
     # Check if the email contains '@' and '.'
     if re.fullmatch(EMAIL_REGEX, email):

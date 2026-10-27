@@ -3,20 +3,20 @@ from database import Database
 def admin_system():
     database = Database()
     while True:
-        choice = input("Admin System (c/g/p/r/s/x): ").lower()
+        choice = input("\tAdmin System (c/g/p/r/s/x): ").lower()
 
         if choice == "c":
-            print("Clearing students database")
-            confirm = input("Are you sure you want to clear the database (Y)es/(N)o: ").strip().lower()
+            print("\tClearing students database")
+            confirm = input("\tAre you sure you want to clear the database (Y)es/(N)o: ").strip().lower()
             if confirm == "y":
                 records = database.load_data()
                 if not records:
-                    print("Error: Database is already empty.")
+                    print("\tError: Database is already empty.")
                 else:
                     database.save_data([])
-                    print("Students data cleared.")
+                    print("\tStudents data cleared.")
         elif choice == "g":
-            print("Grade Grouping")
+            print("\tGrade Grouping")
             records = database.load_data()
             grade_groups = {}
             for record in records:
@@ -38,12 +38,12 @@ def admin_system():
                     " --> GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
             if not grade_groups:
-                print("    < Nothing to Display >")
+                print("\t\t< Nothing to Display >")
             else:
                 for grade, students in grade_groups.items():
-                    print(grade, " --> [" + ", ".join(students) + "]")
+                    print("\t" + grade + " --> [" + ", ".join(students) + "]")
         elif choice == "p":
-            print("PASS/FAIL Partition")
+            print("\tPASS/FAIL Partition")
             records = database.load_data()
             pass_students = []
             fail_students = []
@@ -70,7 +70,7 @@ def admin_system():
                     record["name"] + " :: " + str(record["student_id"]) + " --> "
                     + "GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
-            print("PASS --> [" + ", ".join(pass_output) + "]")
+            print("\tPASS --> [" + ", ".join(pass_output) + "]")
         
             fail_output = []
             for record in fail_students:
@@ -89,35 +89,35 @@ def admin_system():
                     record["name"] + " :: " + str(record["student_id"]) + " --> "
                     + "GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
-            print("FAIL --> [" + ", ".join(fail_output) + "]")
+            print("\tFAIL --> [" + ", ".join(fail_output) + "]")
         elif choice == "r":
             records = database.load_data()
             if not records:
-                print("No students found.")
+                print("\tNo students found.")
             else:
-                student_id = input("Remove by ID: ")
+                student_id = input("\tRemove by ID: ")
                 found = False
                 for record in records:
                     if record["student_id"] == student_id:
                         records.remove(record)
                         database.save_data(records)
-                        print("Removing Student", student_id, "Account")
+                        print("\tRemoving Student", student_id, "Account")
                         found = True
                         break
                 if not found:
-                    print("Student", student_id, "does not exist")
+                    print("\tStudent", student_id, "does not exist")
         elif choice == "s":
-            print("Student List")
+            print("\tStudent List")
             records = database.load_data()
 
             if not records:
-                print("    < Nothing to Display >")
+                print("\t\t< Nothing to Display >")
             else:
                 for record in records:
                     print(
-                        record["name"], "::", record["student_id"], "--> Email:", record["email"])   
+                        "\t" + record["name"] + " :: " + record["student_id"] + " --> Email: " + record["email"])   
         elif choice == "x":
-            print("Exiting Admin System")
+            print("\tExiting Admin System")
             return
         else:
-            print("Invalid choice")
+            print("\tInvalid choice")

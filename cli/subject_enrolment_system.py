@@ -3,32 +3,32 @@ from subject import Subject
 
 def subject_enrolment_system(student_record):
     while True:
-        choice = input("Student Course Menu (c/e/r/s/x): ").lower()
+        choice = input("\tStudent Course Menu (c/e/r/s/x): ").lower()
 
         if choice == "c":
-            print("Updating Password")
+            print("\tUpdating Password")
             while True:
-                new_password = input("New Password: ")
+                new_password = input("\tNew Password: ")
                 if validate_password(new_password):
                     while True:
-                        confirm_password = input("Confirm Password: ")
+                        confirm_password = input("\tConfirm Password: ")
                         if confirm_password != new_password:
-                            print("Password does not match - try again")
+                            print("\tPassword does not match - try again")
                         else:
                             student_record["password"] = new_password
-                            print("Password updated successfully.")
+                            print("\tPassword updated successfully.")
                             break
                     break
                 else:
                     # Password does not meet the required format
-                    print("New password is invalid.")
+                    print("\tNew password is invalid.")
         elif choice == "e":
-            print("Enrol a subject")
+            print("\tEnrol a subject")
 
             if len(student_record["subjects"]) >= 4:
-                print("You have reached the 4 subject enrolment limit.")
+                print("\tYou have reached the 4 subject enrolment limit.")
             else:
-                print("You can enrol in a new subject.")
+                print("\tYou can enrol in a new subject.")
                 new_subject = Subject()
                 id_exists = False
                 for subject in student_record["subjects"]:
@@ -43,21 +43,21 @@ def subject_enrolment_system(student_record):
                             id_exists = True
                             break
                 student_record["subjects"].append(new_subject.to_dict()) 
-                print("Enrolling in Subject-" + new_subject.subject_id)
-                print("You are now enrolled in", len(student_record["subjects"]), "out of 4 subjects.")
+                print("\tEnrolling in Subject-" + new_subject.subject_id)
+                print("\tYou are now enrolled in", len(student_record["subjects"]), "out of 4 subjects.")
                 total_marks = 0
                 for subject in student_record["subjects"]:
                     total_marks = total_marks + subject["mark"]
                 average_mark = total_marks / len(student_record["subjects"])
                 student_record["average_mark"] = average_mark
         elif choice == "r":
-            subject_id = input("Remove Subject by ID: ") 
+            subject_id = input("\tRemove Subject by ID: ") 
             found = False
             for subject in student_record["subjects"]:
                 if subject["subject_id"] == subject_id:
                     student_record["subjects"].remove(subject)
-                    print("Subject with ID", subject_id, "has been removed.")
-                    print("You are now enrolled in", len(student_record["subjects"]), "out of 4 subjects.")
+                    print("\tSubject with ID", subject_id, "has been removed.")
+                    print("\tYou are now enrolled in", len(student_record["subjects"]), "out of 4 subjects.")
                     found = True
                     if len(student_record["subjects"]) > 0:
                         total_marks = 0
@@ -69,14 +69,14 @@ def subject_enrolment_system(student_record):
                         student_record["average_mark"] = 0
                     break
             if found == False:
-                print("Subject with ID", subject_id, "not found.")
+                print("\tSubject with ID", subject_id, "not found.")
                 
         elif choice == "s":
-            print("Showing", len(student_record["subjects"]), "subjects.")   
+            print("\tShowing", len(student_record["subjects"]), "subjects.")   
             for subject in student_record["subjects"]:
-                print("[ Subject::" + str(subject["subject_id"]) + " -- mark =", subject["mark"], "-- grade =", subject["grade"], "]") 
+                print("\t[ Subject::" + str(subject["subject_id"]) + " -- mark =", subject["mark"], "-- grade =", subject["grade"], "]") 
         elif choice == "x":
-            print("Exiting Subject Enrolment System")
+            print("\tExiting Subject Enrolment System")
             return
         else:
-            print("Invalid choice")
+            print("\tInvalid choice")

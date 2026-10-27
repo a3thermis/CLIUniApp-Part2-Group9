@@ -18,5 +18,5 @@ while True:
         print("Thank You")
         break  # Exit the loop
     else:
-        print("Invalid choice. Please try again.")
+        print("\tInvalid choice. Please try again.")
         #Run when none of the conditions matched
