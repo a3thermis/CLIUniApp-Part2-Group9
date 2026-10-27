@@ -40,9 +40,9 @@ python cli/university_system.py
 ```
 ## Start the GUI
 ```bash
-python gui/Login_window.py
+python gui/login_window.py
 ```
-Start the GUI through `Login_window.py`.
+Start the GUI through `login_window.py`.
 The other GUI modules are opened by the application.
 
 ## First-Time Use
