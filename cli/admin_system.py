@@ -3,7 +3,7 @@ from database import Database
 def admin_system():
     database = Database()
     while True:
-        choice = input("Admin System(c/g/p/r/s/x): ").lower()
+        choice = input("Admin System (c/g/p/r/s/x): ").lower()
 
         if choice == "c":
             print("Clearing students database")
@@ -34,14 +34,14 @@ def admin_system():
                 if grade not in grade_groups:
                     grade_groups[grade] = []
                 grade_groups[grade].append(
-                    f'{record["name"]} :: {record["student_id"]} '
-                    f'--> GRADE: {grade} - MARK: {average:.2f}'
+                    record["name"] + " :: " + str(record["student_id"]) + 
+                    " --> GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
             if not grade_groups:
                 print("No students found.")
             else:
                 for grade, students in grade_groups.items():
-                    print(f'{grade} --> {students}')
+                    print(grade, " --> [" + ", ".join(students) + "]")
         elif choice == "p":
             print("PASS/FAIL Partition")
             records = database.load_data()
@@ -68,10 +68,10 @@ def admin_system():
                 else:
                     grade = "Z"
                 pass_output.append(
-                    f'{record["name"]} :: {record["student_id"]} --> '
-                    f'GRADE: {grade} - MARK: {average:.2f}'
+                    record["name"] + " :: " + str(record["student_id"]) + " --> "
+                    + "GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
-            print(pass_output)
+            print("PASS --> [" + ", ".join(pass_output) + "]")
         
             print("FAIL -->", end=" ")
             fail_output = []
@@ -88,12 +88,11 @@ def admin_system():
                 else:
                     grade = "Z"
                 fail_output.append(
-                    f'{record["name"]} :: {record["student_id"]} --> '
-                    f'GRADE: {grade} - MARK: {average:.2f}'
+                    record["name"] + " :: " + str(record["student_id"]) + " --> "
+                    + "GRADE: " + grade + " - MARK: " + "{:.2f}".format(average)
                 )
-            print(fail_output)
+            print("FAIL --> [" + ", ".join(fail_output) + "]")
         elif choice == "r":
-            print("Remove Student")
             records = database.load_data()
             if not records:
                 print("No students found.")
@@ -110,7 +109,7 @@ def admin_system():
                 if not found:
                     print("Student", student_id, "does not exist")
         elif choice == "s":
-            print("Show Students")
+            print("Student List")
             records = database.load_data()
 
             if not records:
@@ -118,7 +117,7 @@ def admin_system():
             else:
                 for record in records:
                     print(
-                        record["name"], ":", record["student_id"], "--> Email:", record["email"])   
+                        record["name"], "::", record["student_id"], "--> Email:", record["email"])   
         elif choice == "x":
             print("Exiting Admin System")
             return
