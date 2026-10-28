@@ -261,7 +261,7 @@ def show_enrolment_window(window, student_record, on_logout):
         button_frame,
         text="Enrol Subject",
         style="Login.TButton",
-        command=enrol_subject,
+        command=enrol_subject,#The function called when clicked
         width=20
         #registers the function as the button’s callback. It runs when the button is clicked. 
         )
