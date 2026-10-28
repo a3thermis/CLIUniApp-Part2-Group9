@@ -5,9 +5,9 @@ Assessment: Assessment 1 — Part 2
 
 
 ## Crystal Nekhiit 
-```text
+
 Implemented database.py and admin_system.py. Developed the database functionality for managing student records through JSON file handling, including database file path configuration, file creation when missing, loading and saving records, calculating missing average marks, and searching for students by email. Implemented the administrative functions for grade grouping, PASS/FAIL partitioning, student removal, displaying student records, and clearing the database with confirmation checks. Beyond individual implementation, tested the entire CLI application to verify that the modules worked together correctly, identified and fixed integration bugs, investigated data persistence and database file connection issues, and systematically compared the CLI prompts, input messages, output messages, spacing, and indentation against the assignment's sample output. Corrected formatting inconsistencies to improve compliance with the specified input/output requirements and the consistency of the integrated application.
-```
+
 
 ## Ruoqi Zhou
 ### System Development 
