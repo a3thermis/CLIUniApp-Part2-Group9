@@ -31,7 +31,7 @@ def show_enrolment_window(window, student_record, on_logout):
         header_frame,
         text="Log out",
         style="Login.TButton",
-        command=logout
+        command=logout #The function runs when the button is clicked.
     )
     logout_button.pack(side="right", padx=24, pady=16)
 
@@ -46,7 +46,8 @@ def show_enrolment_window(window, student_record, on_logout):
         width=16
     )
     subject_button.pack(side="right", padx=(0,12), pady=16)
-#receives the current student record
+    #receives the current student record
+    
     title_label = tk.Label(
         enrolment_frame,
         text="Subject Enrolment",

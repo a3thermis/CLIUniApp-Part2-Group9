@@ -12,6 +12,7 @@ University Application System (CLIUniApp + GUIUniApp), built in Python.
 - The GUI has been tested on macOS.
 
 ## Project Structure
+```text
 CLIUniApp-Part2-Group9/
 ├── README.md
 ├── students.data
@@ -27,7 +28,7 @@ CLIUniApp-Part2-Group9/
     ├── login_window.py
     ├── Enrolment_window.py
     └── Subject_window.py
-    
+```    
 Student records are stored in `students.data` in JSON format.
 The file is created automatically if it does not exist.
 Both the CLI and GUI use the same data file.

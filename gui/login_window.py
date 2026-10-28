@@ -1,17 +1,19 @@
 import tkinter as tk
-from tkinter import ttk, messagebox #provides themed widgets and styling support.
+from tkinter import ttk, messagebox 
+#ttk: provides themed widgets and styling support.
+#messagebox: Displays error, warning, and information dialogs.
 from pathlib import Path
+#path: Handles file and folder paths.
 import sys
 
 
 cli_path = Path(__file__).resolve().parent.parent / "cli"
 sys.path.insert(0, str(cli_path))
-
+#sys.path: Lists the locations Python searches for modules.
 from database import Database
 from student_system import validate_email, validate_password
 from Enrolment_window import show_enrolment_window
 #imports the page function from another file in the same gui folder.
-
 database = Database()
 
 window = tk.Tk()
@@ -107,7 +109,6 @@ def show_login():
 def login():
     email = email_entry.get().strip()
     password = password_entry.get()
-
     if not validate_email(email) or not validate_password(password):
         messagebox.showerror(
             "Invalid format",
